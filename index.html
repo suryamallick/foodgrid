@@ -32,45 +32,32 @@
 $(document).ready(function(){
 var food_item_grid ="";
 $.ajax({
-    url: 'http://texpertise.in/data.php',
-    method: 'GET',
-    // The type of data we expect back
-    contentType: "application/json",
-    dataType: "json",
-    success: function(data) {
-		 console.log(data);
-        $.each(data,function(i,item){	
-		
-		if(item.nonVeg == true){
-		foodtype_class="non-veg";
-		foodtype_value="Non Veg";
-		}else{
-		foodtype_class="veg";
-		foodtype_value="Veg";
-		}
-		
-		if(item.spicy == true){
-		spicy_class="show-spicy";
-		spicy_value="Spicy";
-		}else{
-		spicy_class="hide-spicy"
-		
-		}
-		
-		food_item_grid +='<div class="col-sm-6 col-md-4 col-xs-12"><div class="card">';
+    type: "GET",
+    headers: {"X-My-Custom-Header": "some value"},
+    url: "http://texpertise.in/data.php"
+}).done(function (data) {
+    console.log(data);
+});
 
-			food_item_grid +='<div class="card-img zoomin">'
-			+'<img class="img-fluid" src="'+item.image+'" alt=""></div> <div class="card-body"><div class="news-title"><h2 class=" title-small">'
-			+'<a href="#">'+item.name+'</a></h2></div>'
-			+'<p class="card-text"><i class="fa fa-circle '+foodtype_class+'" aria-hidden="true"></i><small class="text-time"><em>'+foodtype_value+'</em></small></p>'
-			+'<p class="card-text '+spicy_class+'"><img class="img-fluid" src="img/chilli.png"><small class="text-time"><em>'+spicy_value+'</em></small></p>'
-			+'<a href="viewdetail.html?name='+item.name+'" target="_blank" class="btn btn-orange btn-right">View Details</a></div></div></div>'
-			});
+// XMLHttpRequest preflight request
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://texpertise.in/data.php", true);
+xhr.setRequestHeader("X-My-Custom-Header", "some value");
+xhr.onload = function () {
+    console.log(xhr.responseText);
+};
+xhr.send();
 
-		$("#food-container").append(food_item_grid);
-    }
-	
-  });
+// Fetch preflight request
+var myHeaders = new Headers();
+myHeaders.append("X-My-Custom-Header", "some value");
+fetch("http://texpertise.in/data.phpp", {
+    headers: myHeaders
+}).then(function (response) {
+    return response.json();
+}).then(function (json) {
+    console.log(json);
+});
 });
 
 
