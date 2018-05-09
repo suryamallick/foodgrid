@@ -36,6 +36,8 @@ url: 'http://texpertise.in/data.php',
     method: 'GET',
     // The type of data we expect back
     contentType: "application/json",
+    dataType: "jsonp",
+    contentType: "application/json",
     success: function(data) {
 		 console.log(data);
         $.each(data,function(i,item){	
