@@ -27,21 +27,20 @@
 <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="http://texpertise.in/data.php">
+<script>
+
 $(document).ready(function(){
 var food_item_grid ="";
 $.ajax({
     url: 'http://texpertise.in/data.php',
-    jsonp: "callback",
-    type: "GET",
-    dataType: "jsonp",
+    method: 'GET',
     headers: {
 	    'Access-Control-Allow-Origin': '*'
              },
      crossDomain:true,
     // The type of data we expect back
     contentType: "application/json; charset=utf-8",
-   // dataType: "json",
+    dataType: "json",
     success: function(data) {
 		 console.log(data);
         $.each(data,function(i,item){	
@@ -63,6 +62,7 @@ $.ajax({
 		}
 		
 		food_item_grid +='<div class="col-sm-6 col-md-4 col-xs-12"><div class="card">';
+
 			food_item_grid +='<div class="card-img zoomin">'
 			+'<img class="img-fluid" src="'+item.image+'" alt=""></div> <div class="card-body"><div class="news-title"><h2 class=" title-small">'
 			+'<a href="#">'+item.name+'</a></h2></div>'
@@ -70,14 +70,14 @@ $.ajax({
 			+'<p class="card-text '+spicy_class+'"><img class="img-fluid" src="img/chilli.png"><small class="text-time"><em>'+spicy_value+'</em></small></p>'
 			+'<a href="viewdetail.html?name='+item.name+'" target="_blank" class="btn btn-orange btn-right">View Details</a></div></div></div>'
 			});
+
 		$("#food-container").append(food_item_grid);
-    },
-	xhrFields: {
-    withCredentials: false
-      }
+    }
 	
   });
 });
+
+
 	
 </script>
 </body>
