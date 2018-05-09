@@ -40,7 +40,12 @@ $.ajax({
         
     // The type of data we expect back
     contentType: "application/json; charset=utf-8",
-   
+  		 headers: {
+                "Access-Control-Allow-Headers": 'Origin',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+                'Access-Control-Allow-Credentials': true,
+                'Access-Control-Allow-Origin': 'https://github.com' // my domain where I make the ajax request.
+            },
     success: function(data , status, xhr) {
 		 console.log(status);
         $.each(data,function(i,item){	
