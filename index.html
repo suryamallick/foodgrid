@@ -38,19 +38,18 @@ $(document).ready(function(){
 //     });
 	
 $.ajax({
-    url: 'texpertise.in/data.php',
+    url: 'http://texpertise.in/data.php',
     method: 'GET',
     headers: {
-	    'Access-Control-Allow-Origin': '*',
-	    'Access-Control-Allow-Methods': 'GET',
-	    'Access-Control-Allow-Headers':'Content-Type',
-	    'Access-Control-Allow-Credentials':'true'
-	    
+	    'Access-Control-Allow-Origin': '*'
+// 	    'Access-Control-Allow-Methods': 'GET',
+// 	    'Access-Control-Allow-Headers':'Content-Type',
+// 	    'Access-Control-Allow-Credentials':'true'
 	    
              },
-     crossDomain:true,
+    // crossDomain:true,
     // The type of data we expect back
-    contentType: "application/json; charset=utf-8",
+    //contentType: "application/json; charset=utf-8",
     dataType: "jsonp",
 		
     success: function(data) {
