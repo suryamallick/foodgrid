@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="css/style.css"></link>
 	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"></link>
 	<link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i" rel="stylesheet">
-        
     
  
     
@@ -34,21 +33,13 @@ $(document).ready(function(){
 var food_item_grid ="";
 $.ajax({
     url: 'http://texpertise.in/data.php',
-    crossDomain:true,
     method: 'GET',
-    async:true,
-    dataType : 'jsonp',   //you may use jsonp for cross origin request
-     xhrFields: {
-        withCredentials: true
-    },   
+    headers: {
+	    'Access-Control-Allow-Origin': '*'
+             },
     // The type of data we expect back
     contentType: "application/json; charset=utf-8",
-  		 headers: {
-                "Access-Control-Allow-Headers": 'Origin',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-                'Access-Control-Allow-Credentials': true,
-                'Access-Control-Allow-Origin': '*' // my domain where I make the ajax request.
-            },
+    dataType: "jsonp",
     success: function(data) {
 		 console.log(data);
         $.each(data,function(i,item){	
@@ -62,7 +53,7 @@ $.ajax({
 		}
 		
 		if(item.spicy == true){
-		spicy_class="show-spicy"; 
+		spicy_class="show-spicy";
 		spicy_value="Spicy";
 		}else{
 		spicy_class="hide-spicy"
@@ -80,10 +71,6 @@ $.ajax({
 			});
 
 		$("#food-container").append(food_item_grid);
-    },
-    error: function (xhr, status) {
-        // handle errors
-	    console.log(status);
     }
 	
   });
