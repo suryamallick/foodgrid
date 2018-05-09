@@ -32,14 +32,16 @@ $(document).ready(function(){
 var food_item_grid ="";
 $.ajax({
     url: 'http://texpertise.in/data.php',
-    method: 'GET',
+    jsonp: "callback",
+    type: "GET",
+    dataType: "jsonp",
     headers: {
 	    'Access-Control-Allow-Origin': '*'
              },
      crossDomain:true,
     // The type of data we expect back
     contentType: "application/json; charset=utf-8",
-    dataType: "json",
+   // dataType: "json",
     success: function(data) {
 		 console.log(data);
         $.each(data,function(i,item){	
@@ -69,7 +71,10 @@ $.ajax({
 			+'<a href="viewdetail.html?name='+item.name+'" target="_blank" class="btn btn-orange btn-right">View Details</a></div></div></div>'
 			});
 		$("#food-container").append(food_item_grid);
-    }
+    },
+	xhrFields: {
+    withCredentials: false
+      }
 	
   });
 });
