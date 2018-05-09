@@ -34,6 +34,7 @@ var food_item_grid ="";
 $.ajax({
     url: 'http://texpertise.in/data.php',
     method: 'GET',
+    crossDomain:true,
     // The type of data we expect back
     contentType: "application/json",
     dataType: "jsonp",
