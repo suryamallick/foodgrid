@@ -30,6 +30,7 @@ var foodtype_class="";
 var foodtype_value="";
 var spicy_class="";
 var spicy_value="";
+var altimg="'img/img-animation.gif'";
         var queryString = new Array();
 		var srachFoodname="";
         $(function () {
@@ -54,11 +55,15 @@ var spicy_value="";
 			
 					var food_item_grid ="";
 $.ajax({
+	xhrFields: {
+        withCredentials: false
+    },
     url: 'http://texpertise.in/data.php',
     method: 'GET',
     // The type of data we expect back
     contentType: "application/json",
     dataType: "json",
+	headers: {'Access-Control-Allow-Origin': '*'},
     success: function(data) {
 		 console.log(data);
         $.each(data,function(i,item){	
@@ -84,7 +89,7 @@ $.ajax({
 		food_item_grid +='<div class="col-md-4">';
 
 			food_item_grid +='<a href="#" class="follow_btn hidden-xs">'
-			+'<img class="img-fluid img-thumbnail" src="'+item.image+'" alt=""></div></a> <div class="col-md-8"><div class="header">'
+			+'<img class="img-fluid img-thumbnail" onerror="this.onerror=null;this.src='+altimg+';" src="'+item.image+'" alt=""></div></a> <div class="col-md-8"><div class="header">'
 			+'<h1>'+item.name+'</h1>'
 			+'<span>'+item.description+'</span><hr>'
 			+'<p class="card-text"><i class="fa fa-circle '+foodtype_class+'" aria-hidden="true"></i><small class="text-time"><em>'+foodtype_value+'</em></small></p>'
