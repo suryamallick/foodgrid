@@ -34,11 +34,13 @@ var food_item_grid ="";
 $.ajax({
     url: 'http://texpertise.in/data.php',
     method: 'GET',
-    crossDomain:true,
+    async:true,
+        dataType : 'jsonp',   //you may use jsonp for cross origin request
+        crossDomain:true,
     // The type of data we expect back
-    contentType: "application/json",
-    dataType: "jsonp",
-    success: function(data) {
+    contentType: "application/json; charset=utf-8",
+   
+    success: function(data , status, xhr) {
 		 console.log(data);
         $.each(data,function(i,item){	
 		
