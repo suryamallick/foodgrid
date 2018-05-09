@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="bootstrap4/dist/css/bootstrap.css"></link>
+	<link rel="stylesheet" href="css/style.css"></link>
+	<link rel="stylesheet" href="css/loding.css"></link>
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"></link>
+	<link href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i" rel="stylesheet">
+    
+ 
+    
+</head>
+<body>
+
+  <!--================================================== foods Detail ================================================== -->
+      <section id="foods-detail">
+      
+      	   <div class="container">
+	<div class="row panel" id="food-panel">
+		
+    </div> 
+      </section>
+ 
+<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript" src="bootstrap4/assets/js/vendor/popper.min.js"></script>	
+<script type="text/javascript" src="bootstrap4/dist/js/bootstrap.min.js"></script>	
+<script type="text/javascript">
+var foodtype_class="";
+var foodtype_value="";
+var spicy_class="";
+var spicy_value="";
+        var queryString = new Array();
+		var srachFoodname="";
+        $(function () {
+            if (queryString.length == 0) {
+                if (window.location.search.split('?').length > 1) {
+                    var params = window.location.search.split('?')[1].split('&');
+                    for (var i = 0; i < params.length; i++) {
+                        var key = params[i].split('=')[0];
+                        var value = decodeURIComponent(params[i].split('=')[1]);
+                        queryString[key] = value;
+                    }
+                }
+            }
+			
+            if (queryString["name"] != null) {
+                
+                srachFoodname= queryString["name"];
+				srachFoodname=srachFoodname.trim();
+                $("#displayData").html(srachFoodname);
+
+            }
+			
+					var food_item_grid ="";
+$.ajax({
+    url: 'http://texpertise.in/data.php',
+    method: 'GET',
+    // The type of data we expect back
+    contentType: "application/json",
+    dataType: "json",
+    success: function(data) {
+		 console.log(data);
+        $.each(data,function(i,item){	
+	    var tempName=item.name;
+	 if(tempName == srachFoodname){
+	
+		if(item.nonVeg == true){
+		foodtype_class="non-veg";
+		foodtype_value="Non Veg";
+		}else{
+		foodtype_class="veg";
+		foodtype_value="Veg";
+		}
+		
+		if(item.spicy == true){
+		spicy_class="show-spicy";
+		spicy_value="Spicy";
+		}else{
+		spicy_class="hide-spicy"
+		
+		}
+		
+		food_item_grid +='<div class="col-md-4">';
+
+			food_item_grid +='<a href="#" class="follow_btn hidden-xs">'
+			+'<img class="img-fluid img-thumbnail" src="'+item.image+'" alt=""></div></a> <div class="col-md-8"><div class="header">'
+			+'<h1>'+item.name+'</h1>'
+			+'<span>'+item.description+'</span><hr>'
+			+'<p class="card-text"><i class="fa fa-circle '+foodtype_class+'" aria-hidden="true"></i><small class="text-time"><em>'+foodtype_value+'</em></small></p>'
+			+'<p class="card-text '+spicy_class+'"><img class="img-fluid" src="img/chilli.png"><small class="text-time"><em>'+spicy_value+'</em></small></p>'
+			+'</div></div>'
+    
+}
+	});	
+	
+	$("#food-panel").append(food_item_grid);
+	
+  }	
+});	
+  });	
+
+    </script>	
+</body>
+</html>

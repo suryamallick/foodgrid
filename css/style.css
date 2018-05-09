@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+body {
+  color: #5a5a5a;
+  font-family:'Lato', sans-serif;
+  font-size: 15px;
+}
+h1,h2,h3,h4,h5{
+   font-family: 'Arvo', serif;
+}
+section{padding: 30px 0; float: left; width: 100%}
+ #foods-detail a{color:#333;text-decoration:none;}
+  #foods-detail a:hover{color:#333;text-decoration: none;}
+/*++++++++++++++++++++++food-grid++++++++++++++++++++++++++*/
+#food-grid{float: left; width:100%;}
+#food-grid{float: left; width: 100%;}
+#food-grid .news-block{margin-bottom: 20px}
+#food-grid .news-block:last-child{margin-bottom: 0px}
+#food-grid .news-des {margin-bottom: 5px;}
+#food-grid .title-large{margin: 18px 0 0}
+#food-grid .time{margin-top: 0px; font-size: 13px;}
+#food-grid .card{margin-bottom:0px;}
+#food-grid .card > .card-img{padding: 15px;cursor:pointer}
+ .title-small a{color:#333 !important;}
+ .title-small a:hover{text-decoration: none;color:#333 !important;} 
+
+.card{float: left; width:100%;margin-top: 20px;}
+.title-large {font-size: 20px; margin: 10px 0 5px; line-height: 27px; color: #141517;}
+.title-small { color: #333333; font-size: 19px; font-weight: 700; line-height: 23px; margin:0;}
+.title-x-small {font-size: 18px; margin: 0px;}
+.title-large a, .title-small a, .title-x-small a{text-decoration:none;}
+
+.card-block{padding:0 10px 10px;}
+.card-text{margin: 0;display:inline;}
+.card-text img{max-width:12.5px;max-height:15px;margin-left:10px;}
+.text-time{color: #333333; font-weight: 600;margin-left:10px;}
+.btn-orange {color: #fff;background-color: #fc461e;border-color: #fc461e; font-size:15px;cursor:pointer;}
+.btn-orange:hover{color: #fff}
+.btn-right{float:right;}
+.non-veg{color:#fc461e;}
+.veg{color:#0e7e12;}
+.show-spicy{display:inline;}
+.hide-spicy{display:none;}
+
+.panel{border: 1px solid #dddddda8;box-shadow: 3px 3px 3px #dddddda8; padding:20px;}
+
+.zoomin img {
+   -webkit-transition: all 1.2s ease; /* Safari and Chrome */
+    -moz-transition: all 1.2s ease; /* Firefox */
+    -o-transition: all 1.2s ease; /* IE 9 */
+    -ms-transition: all 1.2s ease; /* Opera */
+    transition: all 1.2s ease;
+        max-width: 100%;
+}
+
+.zoomin:hover img {
+  -moz-transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  transform: scale(1.03);
+}
+
+
+
+
+/*+++++++++++++++++++++media+++++++++++++++++++++++++*/
+@media (max-width:767px){
+.btn-orange {font-size:13px !important;}
+
+}
