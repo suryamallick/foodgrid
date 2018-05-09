@@ -38,7 +38,9 @@ $.ajax({
     method: 'GET',
     async:true,
     dataType : 'jsonp',   //you may use jsonp for cross origin request
-        
+     xhrFields: {
+        withCredentials: true
+    },   
     // The type of data we expect back
     contentType: "application/json; charset=utf-8",
   		 headers: {
@@ -78,6 +80,10 @@ $.ajax({
 			});
 
 		$("#food-container").append(food_item_grid);
+    },
+    error: function (xhr, status) {
+        // handle errors
+	    console.log(status);
     }
 	
   });
