@@ -25,7 +25,7 @@ section{padding: 30px 0; float: left; width: 100%}
 
 .card{float: left; width:100%;margin-top: 20px;}
 .title-large {font-size: 20px; margin: 10px 0 5px; line-height: 27px; color: #141517;}
-.title-small { color: #333333; font-size: 19px; font-weight: 700; line-height: 23px; margin:0;}
+.title-small { color: #333333; font-size: 19px; font-weight: 700; line-height: 23px; margin-top:5px;}
 .title-x-small {font-size: 18px; margin: 0px;}
 .title-large a, .title-small a, .title-x-small a{text-decoration:none;}
 
