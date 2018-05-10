@@ -6,7 +6,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/style.css"></link>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-
+	
+    
+ 
+    
 </head>
 <body>
 
@@ -62,7 +65,7 @@ $.ajax({
     dataType: "json",
 	headers: {'Access-Control-Allow-Origin': '*'},
     success: function(data) {
-		 console.log(data);
+		 //console.log(data);
         $.each(data,function(i,item){	
 	    var tempName=item.name;
 	 if(tempName == srachFoodname){
@@ -85,7 +88,7 @@ $.ajax({
 		
 		food_item_grid +='<div class="col-md-4">';
 
-			food_item_grid +='<a href="#" class="follow_btn hidden-xs">'
+			food_item_grid +='<a href="#">'
 			+'<img class="img-fluid img-thumbnail" onerror="this.onerror=null;this.src='+altimg+';" src="'+item.image+'" alt=""></div></a> <div class="col-md-8"><div class="header">'
 			+'<h1>'+item.name+'</h1>'
 			+'<span>'+item.description+'</span><hr>'
